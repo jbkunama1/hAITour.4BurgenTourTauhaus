@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TOUR_TITEL}} · {{ORT}}</title>
+  <style>
+    :root {
+      --gruen: #2d6a4f;
+      --hellgruen: #52b788;
+      --gold: #c9a227;
+      --bg: #f8f5f0;
+      --text: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; background: var(--bg); color: var(--text); }
+    .hero { position: relative; height: 100vh; min-height: 500px; background: url('{{HERO_BILD}}') center/cover no-repeat; display: flex; align-items: flex-end; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 3rem; color: white; max-width: 800px; }
+    .hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; margin-bottom: 1rem; }
+    .hero-content p { font-size: 1.2rem; opacity: 0.9; }
+    .badge-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .badge { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.9rem; color: white; backdrop-filter: blur(4px); }
+    section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    h2 { font-size: 1.8rem; color: var(--gruen); border-left: 4px solid var(--gold); padding-left: 1rem; margin-bottom: 1.5rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; }
+    .stat-card { background: white; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .stat-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .stat-value { font-size: 1.4rem; font-weight: bold; color: var(--gruen); }
+    .stat-label { font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+    .route-steps { list-style: none; }
+    .route-steps li { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid #e8e0d4; }
+    .route-steps li:last-child { border-bottom: none; }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--gruen); color: white; font-weight: bold; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-info strong { display: block; font-size: 1.05rem; }
+    .step-info span { font-size: 0.9rem; color: #666; }
+    .galerie { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .galerie-item { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 3/4; }
+    .galerie-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+    .galerie-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .galerie-item:hover img { transform: scale(1.04); }
+    .galerie-item figcaption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 1.5rem 1rem 0.8rem; font-size: 0.85rem; opacity: 0; transition: opacity 0.3s; }
+    .galerie-item:hover figcaption { opacity: 1; }
+    .highlight { background: linear-gradient(135deg, var(--gruen), #1b4332); color: white; border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .highlight h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .highlight ul { list-style: none; }
+    .highlight ul li { padding: 0.4rem 0; padding-left: 1.5rem; position: relative; }
+    .highlight ul li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); }
+    .highlight img { width: 100%; border-radius: 10px; }
+    .tipps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .tipp-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-top: 3px solid var(--gold); }
+    .tipp-card .icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .tipp-card h4 { color: var(--gruen); margin-bottom: 0.5rem; }
+    footer { background: var(--gruen); color: rgba(255,255,255,0.8); text-align: center; padding: 2rem; font-size: 0.9rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+    @media (max-width: 640px) { .galerie-item.wide { grid-column: span 1; aspect-ratio: 3/4; } .highlight { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>{{HERO_TITEL}}</h1>
+    <p>{{HERO_UNTERTITEL}}</p>
+    <div class="badge-row">
+      <span class="badge">{{BADGE_1}}</span>
+      <span class="badge">{{BADGE_2}}</span>
+      <span class="badge">{{BADGE_3}}</span>
+      <span class="badge">{{BADGE_4}}</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <h2>Tour auf einen Blick</h2>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-icon">{{STAT_1_ICON}}</div><div class="stat-value">{{STAT_1_WERT}}</div><div class="stat-label">{{STAT_1_LABEL}}</div></div>
+    <div class="stat-card"><div class="stat-icon">{{STAT_2_ICON}}</div><div class="stat-value">{{STAT_2_WERT}}</div><div class="stat-label">{{STAT_2_LABEL}}</div></div>
+    <div class="stat-card"><div class="stat-icon">{{STAT_3_ICON}}</div><div class="stat-value">{{STAT_3_WERT}}</div><div class="stat-label">{{STAT_3_LABEL}}</div></div>
+    <div class="stat-card"><div class="stat-icon">{{STAT_4_ICON}}</div><div class="stat-value">{{STAT_4_WERT}}</div><div class="stat-label">{{STAT_4_LABEL}}</div></div>
+    <div class="stat-card"><div class="stat-icon">{{STAT_5_ICON}}</div><div class="stat-value">{{STAT_5_WERT}}</div><div class="stat-label">{{STAT_5_LABEL}}</div></div>
+    <div class="stat-card"><div class="stat-icon">{{STAT_6_ICON}}</div><div class="stat-value">{{STAT_6_WERT}}</div><div class="stat-label">{{STAT_6_LABEL}}</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Impressionen</h2>
+  <div class="galerie">
+    <figure class="galerie-item wide"><img src="{{GALERIE_BILD_1}}" alt="{{GALERIE_ALT_1}}"><figcaption>{{GALERIE_TEXT_1}}</figcaption></figure>
+    <figure class="galerie-item"><img src="{{GALERIE_BILD_2}}" alt="{{GALERIE_ALT_2}}"><figcaption>{{GALERIE_TEXT_2}}</figcaption></figure>
+    <figure class="galerie-item"><img src="{{GALERIE_BILD_3}}" alt="{{GALERIE_ALT_3}}"><figcaption>{{GALERIE_TEXT_3}}</figcaption></figure>
+    <figure class="galerie-item"><img src="{{GALERIE_BILD_4}}" alt="{{GALERIE_ALT_4}}"><figcaption>{{GALERIE_TEXT_4}}</figcaption></figure>
+    <figure class="galerie-item wide"><img src="{{GALERIE_BILD_5}}" alt="{{GALERIE_ALT_5}}"><figcaption>{{GALERIE_TEXT_5}}</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="highlight">
+    <div>
+      <h3>{{HIGHLIGHT_TITEL}}</h3>
+      <ul>
+        <li>{{HIGHLIGHT_1}}</li>
+        <li>{{HIGHLIGHT_2}}</li>
+        <li>{{HIGHLIGHT_3}}</li>
+        <li>{{HIGHLIGHT_4}}</li>
+        <li>{{HIGHLIGHT_5}}</li>
+        <li>{{HIGHLIGHT_6}}</li>
+      </ul>
+    </div>
+    <div>
+      <img src="{{HIGHLIGHT_BILD}}" alt="{{HIGHLIGHT_BILD_ALT}}">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Wegpunkte</h2>
+  <ul class="route-steps">
+    <li><span class="step-num">1</span><div class="step-info"><strong>{{WEGPUNKT_1_TITEL}}</strong><span>{{WEGPUNKT_1_TEXT}}</span></div></li>
+    <li><span class="step-num">2</span><div class="step-info"><strong>{{WEGPUNKT_2_TITEL}}</strong><span>{{WEGPUNKT_2_TEXT}}</span></div></li>
+    <li><span class="step-num">3</span><div class="step-info"><strong>{{WEGPUNKT_3_TITEL}}</strong><span>{{WEGPUNKT_3_TEXT}}</span></div></li>
+    <li><span class="step-num">4</span><div class="step-info"><strong>{{WEGPUNKT_4_TITEL}}</strong><span>{{WEGPUNKT_4_TEXT}}</span></div></li>
+    <li><span class="step-num">5</span><div class="step-info"><strong>{{WEGPUNKT_5_TITEL}}</strong><span>{{WEGPUNKT_5_TEXT}}</span></div></li>
+    <li><span class="step-num">6</span><div class="step-info"><strong>{{WEGPUNKT_6_TITEL}}</strong><span>{{WEGPUNKT_6_TEXT}}</span></div></li>
+    <li><span class="step-num">7</span><div class="step-info"><strong>{{WEGPUNKT_7_TITEL}}</strong><span>{{WEGPUNKT_7_TEXT}}</span></div></li>
+    <li><span class="step-num">8</span><div class="step-info"><strong>{{WEGPUNKT_8_TITEL}}</strong><span>{{WEGPUNKT_8_TEXT}}</span></div></li>
+  </ul>
+</section>
+
+<section>
+  <h2>🗺️ Karte & Route</h2>
+  <p style="color:#666; margin-bottom:1.5rem; font-family:Georgia,serif; font-size:1rem;">{{KARTEN_KURZINFO}}</p>
+  <div style="border-radius:14px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.13); border:1px solid #dcd9d5;">
+    <iframe src="{{OSM_EMBED_URL}}" width="100%" height="420" style="display:block; border:none;" allowfullscreen="" loading="lazy" title="{{OSM_IFRAME_TITEL}}"></iframe>
+  </div>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; font-family:Georgia,serif; font-size:0.9rem;">
+    <a href="{{OSM_LINK}}" target="_blank" rel="noopener noreferrer" style="color:#2d6a4f; text-decoration:none; border:1px solid #2d6a4f; padding:0.4rem 1rem; border-radius:999px;">🗺️ Größere Karte öffnen</a>
+    <a href="{{MAPY_LINK}}" target="_blank" rel="noopener noreferrer" style="color:#2d6a4f; text-decoration:none; border:1px solid #2d6a4f; padding:0.4rem 1rem; border-radius:999px;">🧭 Auf Mapy.cz öffnen</a>
+    <a href="{{GPX_DATEI_LINK}}" download style="color:#c9a227; text-decoration:none; border:1px solid #c9a227; padding:0.4rem 1rem; border-radius:999px;">⬇️ GPX-Datei herunterladen</a>
+  </div>
+</section>
+
+<section>
+  <h2>Tipps & Hinweise</h2>
+  <div class="tipps-grid">
+    <div class="tipp-card"><div class="icon">{{TIPP_1_ICON}}</div><h4>{{TIPP_1_TITEL}}</h4><p>{{TIPP_1_TEXT}}</p></div>
+    <div class="tipp-card"><div class="icon">{{TIPP_2_ICON}}</div><h4>{{TIPP_2_TITEL}}</h4><p>{{TIPP_2_TEXT}}</p></div>
+    <div class="tipp-card"><div class="icon">{{TIPP_3_ICON}}</div><h4>{{TIPP_3_TITEL}}</h4><p>{{TIPP_3_TEXT}}</p></div>
+    <div class="tipp-card"><div class="icon">{{TIPP_4_ICON}}</div><h4>{{TIPP_4_TITEL}}</h4><p>{{TIPP_4_TEXT}}</p></div>
+    <div class="tipp-card"><div class="icon">{{TIPP_5_ICON}}</div><h4>{{TIPP_5_TITEL}}</h4><p>{{TIPP_5_TEXT}}</p></div>
+    <div class="tipp-card"><div class="icon">{{TIPP_6_ICON}}</div><h4>{{TIPP_6_TITEL}}</h4><p>{{TIPP_6_TEXT}}</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>📷 Fotos: {{FOTO_DATUM}} &nbsp;|&nbsp; 🔗 <a href="{{REPO_LINK}}" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+</footer>
+</body>
+</html>
