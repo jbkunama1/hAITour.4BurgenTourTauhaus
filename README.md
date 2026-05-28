@@ -120,3 +120,18 @@ Der Aussichtspunkt **Hraběcí kříž** („Grafenkreuz“) oberhalb der Stadt 
 
 *📷 Alle Fotos entstanden auf der Tour im Mai 2026.*  
 *🔗 [GitHub Repository](https://github.com/jbkunama1/4BurgenTourTauhaus)*
+
+---
+
+## 🧩 Template für weitere Touren
+
+Für ähnliche Touren liegt jetzt ein wiederverwendbares HTML-Template bereit:
+
+- `site/tour-template.html`
+
+Vorgehen:
+
+1. Datei kopieren (z. B. `site/tour-neu.html` oder als neues `site/index.html`).
+2. Platzhalter im Format `{{...}}` durch deine Tourdaten ersetzen.
+3. Bilder/GPX unter `assets/` ablegen und Links im Template anpassen.
+4. Änderungen nach `main` pushen, damit GitHub Pages die Seite aus `site/` veröffentlicht.
