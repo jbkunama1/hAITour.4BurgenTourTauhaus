@@ -7,7 +7,7 @@
 ![Platform: GIS](https://img.shields.io/badge/Platform-GIS%20%2F%20Maps-0a7ea4)
 [![Deploy workflow status](https://img.shields.io/github/actions/workflow/status/jbkunama1/4BurgenTourTauhaus/pages.yml?branch=main&label=Deploy "Deploy workflow status")](https://github.com/jbkunama1/4BurgenTourTauhaus/actions/workflows/pages.yml)
 
-<a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" width="217" height="60"></a>
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/highfish)
 
 Enthaltene Dateien:
 
