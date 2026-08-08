@@ -1,10 +1,10 @@
 # 🏰 4-Burgen-Tour am Tauhaus · Rabštejn nad Střelou
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Tech: HTML](https://img.shields.io/badge/Tech-HTML5-E34F26?logo=html5&logoColor=white)
-![Type: Domain Backup](https://img.shields.io/badge/Type-Domain%20Backup-1f6feb)
-![Status: Active](https://img.shields.io/badge/Status-Active-2ea043)
-![Platform: GitHub Pages](https://img.shields.io/badge/Platform-GitHub%20Pages-222222?logo=github&logoColor=white)
+[![Tech: HTML](https://img.shields.io/badge/Tech-HTML5-E34F26?logo=html5&logoColor=white)](https://github.com/jbkunama1/hAITour.4BurgenTourTauhaus)
+[![Type: Domain Backup](https://img.shields.io/badge/Type-Domain%20Backup-1f6feb)](https://github.com/jbkunama1/hAITour.4BurgenTourTauhaus)
+[![Status: Active](https://img.shields.io/badge/Status-Active-2ea043)](https://github.com/jbkunama1/hAITour.4BurgenTourTauhaus)
+[![Platform: GitHub Pages](https://img.shields.io/badge/Platform-GitHub%20Pages-222222?logo=github&logoColor=white)](https://github.com/jbkunama1/hAITour.4BurgenTourTauhaus)
 [![Deploy workflow status](https://img.shields.io/github/actions/workflow/status/jbkunama1/4BurgenTourTauhaus/pages.yml?branch=main&label=Deploy "Deploy workflow status")](https://github.com/jbkunama1/4BurgenTourTauhaus/actions/workflows/pages.yml)
 
 <a href="https://www.buymeacoffee.com/highfish" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" width="217" height="60"></a>
